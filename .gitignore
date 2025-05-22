@@ -1,0 +1,107 @@
+# WordPress
+# 忽略 WordPress 核心文件，因为它们应该通过 WordPress 更新机制来管理。
+# 如果你使用 Git 来部署整个站点（包括核心），则不应忽略这些。
+# 对于插件或主题开发，通常会忽略核心。
+/wp-admin/
+/wp-includes/
+/wp-*.php
+index.php
+xmlrpc.php
+license.txt
+readme.html
+wp-config.php # 极其重要！包含数据库凭证和密钥，绝不应提交到仓库。
+             # 你应该提交一个 wp-config-sample.php
+
+# 忽略用户上传的内容
+/wp-content/uploads/
+
+# 忽略主题和插件（除非是你正在开发的主题/插件）
+# 默认忽略所有，然后取消忽略你自己的主题/插件
+/wp-content/themes/*
+!/wp-content/themes/your-theme-name/ # 取消忽略你的主题
+!/wp-content/themes/your-child-theme-name/ # 如果有子主题
+
+/wp-content/plugins/*
+!/wp-content/plugins/your-plugin-name/ # 取消忽略你的插件
+
+# 忽略 mu-plugins (Must-Use Plugins)
+# 如果你有自定义的 mu-plugins 并且想要跟踪它们，请取消忽略
+# /wp-content/mu-plugins/*
+# !/wp-content/mu-plugins/your-mu-plugin.php
+
+# 忽略 WordPress 升级时使用的临时文件夹
+/wp-content/upgrade/
+
+# 忽略缓存插件生成的文件
+/wp-content/cache/
+/wp-content/w3tc-config/
+/wp-content/wflogs/
+/wp-content/wp-rocket-config/
+
+# 忽略备份插件生成的文件
+/wp-content/backup-*/
+/wp-content/backups/
+/wp-content/ai1wm-backups/
+
+# 忽略语言文件（通常由WordPress或插件/主题自行下载）
+# 如果你的主题/插件包含自定义语言文件，它们通常在主题/插件目录内，会被跟踪
+/wp-content/languages/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE / Editor 配置
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+nbproject/ # NetBeans
+
+# Node.js / npm / yarn (如果用于前端构建)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json # 如果团队中每个人都用npm，可以考虑不忽略或用yarn.lock
+# yarn.lock # 如果团队中每个人都用yarn
+
+# Composer (PHP依赖管理)
+vendor/
+composer.lock # 通常建议提交 composer.lock 以确保依赖版本一致，但如果这是个共享库，有时会忽略
+
+# 日志文件
+*.log
+debug.log
+error_log
+
+# 压缩文件和临时文件
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.rar
+*.tmp
+*.swp
+*.swo # Vim swap files
+
+# 其他
+.htaccess # 通常由 WordPress 或插件生成和管理，但有时需要自定义并跟踪
+          # 如果你需要跟踪，从这里移除它。
+advanced-cache.php # 由某些缓存插件生成
+object-cache.php # 由某些对象缓存插件生成
+sitemap.xml # 通常由SEO插件生成
+robots.txt # 有时需要自定义并跟踪，根据情况决定
+
+# SASS / SCSS 缓存
+.sass-cache/
+
+# 构建输出目录 (例如 Grunt, Gulp, Webpack)
+dist/
+build/
